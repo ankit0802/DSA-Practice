@@ -1,0 +1,28 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        
+        int c=1;
+        int n=digits.size();
+        for(int i=n-1;i>=0;i--)
+        {
+            if((c+digits[i])%10==0 and i!=0)
+            {
+                c=1;
+                digits[i]=0;
+            }
+            else if((c+digits[i])%10!=0)
+            {
+                digits[i]=c+digits[i];
+                break;
+            }
+            else if((c+digits[i])%10==0 and i==0)
+            {
+                digits[i]=0;
+                int x=1;
+                digits.insert(digits.begin(),x);
+            }
+        }
+        return digits;
+    }
+};
