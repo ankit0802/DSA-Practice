@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& arr, int target) {
+        vector<int> ans;
+        
+        int n=arr.size();
+        
+        map<int,int> mp;
+        
+        mp[arr[0]]=0;
+        
+        for(int i=1;i<n;i++)
+        {
+            auto it=mp.find(target-arr[i]);
+            if(it!=mp.end())
+            {
+                ans.push_back(it->second);
+                ans.push_back(i);
+            }
+            else
+            {
+                mp[arr[i]]=i;
+            }
+        }
+        return ans;
+    }
+};
